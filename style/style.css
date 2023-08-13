@@ -31,24 +31,41 @@
 .quiz-container img {
   margin: auto;
   margin-top: 20px;
+  width: 80px;
   display: block;
 }
 
 .quiz-container h3 {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 500;
   padding: 20px 0;
 }
 
+#optionLi {
+  background-color: #ff0000;
+}
+
+#optionLi li {
+  margin-left: 50px;
+  font-size: 12px;
+  text-align: left;
+  list-style: none;
+}
+
+.quiz-container .label-input {
+  margin-top: 20px;
+  display: block;
+}
+
 .quiz-container input {
-  width: 90%;
+  width: 10%;
   height: 40px;
   outline: none;
   padding: 0 10px;
   border: 2px solid black;
   border-radius: 5px;
   display: block;
-  margin: 30px auto 20px;
+  margin: 0 auto;
 }
 
 .quiz-container button {
