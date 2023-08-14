@@ -1,10 +1,10 @@
 const questions = [
-  // {
-  //   image: "img/jokowi.png",
-  //   question: "Siapa nama tokoh di atas?",
-  //   answer: "jokowidodo",
-  //   options: ["Jokowi", "Prabowo", "Megawati", "Susilo Bambang Yudhoyono"],
-  // },
+  {
+    image: "img/jokowi.png",
+    question: "Siapa nama tokoh di atas?",
+    answer: "A",
+    options: ["A. Jokowi", "B. Prabowo", "C. Megawati", "D. Susilo Bambang Yudhoyono"],
+  },
   {
     // gambar bj habibie
     image: "img/habibie.png",
@@ -84,10 +84,13 @@ const questions = [
   },
 ];
 
-let currentQuestion = 0;
-let correctAnswers = 0;
-let wrongAnswers = 0;
-let totalQuestions = 5;
+// awal mulai
+
+// nilai awal
+let soal = 0;
+let jawabanBenar = 0;
+let jawabanSalah = 0;
+const totalSoal = 2;
 
 const quizImage = document.querySelector(".quiz-container img");
 const quizText = document.querySelector("#quiz");
@@ -95,29 +98,16 @@ const answerInput = document.querySelector("#answer");
 const nextButton = document.querySelector("#next-quiz");
 const restartButton = document.getElementById("restart-quiz");
 const optionsList = document.getElementById("optionLi");
+let pesanBenar = document.getElementById("benarfix");
 
-shuffleQuestions();
-displayQuestion(currentQuestion);
-
-function shuffleQuestions() {
-  shuffleArray(questions);
-}
-
-questions[currentQuestion].options.forEach((option) => {
-  const liElement = document.createElement("li");
-  liElement.textContent = option;
-  optionsList.appendChild(liElement);
-});
-
-shuffleQuestions(); // Mengacak pertanyaan
-displayQuestion(currentQuestion);
+ngecekSoal();
+soalSoal(soal);
 
 answerInput.addEventListener("input", (event) => {
   const userInput = event.target.value.toLowerCase();
-
-  // Hanya izinkan huruf a, b, c, atau d
   if (!["a", "b", "c", "d"].includes(userInput)) {
     event.target.value = "";
+    alert("hanya boleh huruf A,B,C,D");
   }
 });
 
@@ -127,46 +117,18 @@ nextButton.addEventListener("click", () => {
     return;
   }
 
-  checkAnswer();
-  showNextQuestion();
+  reviewJawaban();
+  nextSoal();
 });
 
-function restartQuiz() {
-  correctAnswers = 0;
-  wrongAnswers = 0;
-  currentQuestion = 0;
-  shuffleQuestions();
-  displayQuestion(currentQuestion);
-
-  // Hapus elemen pesan benar dan pesan salah
-  document.getElementById("benar").innerHTML = "";
-  document.getElementById("salah").innerHTML = "";
-
-  const notification = document.querySelector(".quiz-container p");
-  if (notification) {
-    notification.remove();
+restartButton.addEventListener("click", () => {
+  if (jawabanBenar > 0) {
+    jawabanBenar.innerHTML = "0";
   }
+  restartQuiz();
+});
 
-  optionsList.style.display = "block";
-  restartButton.style.display = "none";
-  answerInput.style.display = "block";
-  nextButton.style.display = "block";
-  quizImage.style.display = "block";
-
-  // Hapus elemen opsi sebelum mengisi ulang opsi-opsi pertanyaan
-  optionsList.innerHTML = "";
-
-  // Isi ulang opsi-opsi pertanyaan
-  questions[currentQuestion].options.forEach((option) => {
-    const liElement = document.createElement("li");
-    liElement.textContent = option;
-    optionsList.appendChild(liElement);
-  });
-
-  answerInput.value = ""; // Bersihkan nilai input
-}
-
-function shuffleArray(array) {
+function randomSoal(array) {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [array[i], array[j]] = [array[j], array[i]];
@@ -174,55 +136,55 @@ function shuffleArray(array) {
   return array;
 }
 
-function displayQuestion(questionIndex) {
-  quizImage.src = questions[questionIndex].image;
-  quizText.textContent = questions[questionIndex].question;
+function ngecekSoal() {
+  randomSoal(questions);
+}
 
-  optionsList.innerHTML = ""; // Clearing previous options
+function soalSoal(questionIndex) {
+  const currentQuestionObj = questions[questionIndex];
 
-  questions[questionIndex].options.forEach((option) => {
+  quizImage.src = currentQuestionObj.image;
+  quizText.textContent = currentQuestionObj.question;
+
+  optionsList.innerHTML = "";
+
+  currentQuestionObj.options.forEach((option, index) => {
     const liElement = document.createElement("li");
     liElement.textContent = option;
+    liElement.dataset.optionIndex = index; // Attach the option index as a data attribute
     optionsList.appendChild(liElement);
   });
 }
 
-function checkAnswer() {
+function reviewJawaban() {
   const userAnswer = answerInput.value.trim().toLowerCase().replace(/\s+/g, "");
-  const correctAnswer = questions[currentQuestion].answer.toLowerCase().replace(/\s+/g, "");
+  const correctAnswer = questions[soal].answer.toLowerCase().replace(/\s+/g, "");
 
   if (userAnswer === correctAnswer) {
-    correctAnswers++;
+    jawabanBenar++;
     benar();
   } else {
-    wrongAnswers++;
-    salah();
+    jawabanSalah++;
   }
 
   answerInput.value = "";
 }
 
-function salah() {
-  let pesanSalah = document.getElementById("salah");
-  pesanSalah.innerHTML = `Salah ${wrongAnswers} kali.`;
-}
-
 function benar() {
-  let pesanBenar = document.getElementById("benar");
-  pesanBenar.innerHTML = `banar ${correctAnswers} kali.`;
+  pesanBenar.innerHTML = `${jawabanBenar}`;
 }
 
 function displayResult() {
   let resultMessage = "";
-  if (correctAnswers === totalQuestions) {
+  if (jawabanBenar === totalSoal) {
     resultMessage = "Keren!";
-  } else if (correctAnswers > 6 && correctAnswers <= 10) {
+  } else if (jawabanBenar > 6 && jawabanBenar <= 10) {
     resultMessage = "Lumayan";
   } else {
     resultMessage = "Anda pasti kurang belajar";
   }
 
-  quizText.textContent = `Skor Anda: Benar ${correctAnswers}, Salah ${wrongAnswers}`;
+  quizText.textContent = `Skor Anda: ${jawabanBenar}, dari ${totalSoal} soal`;
   const notification = document.createElement("p");
   notification.textContent = resultMessage;
   document.querySelector(".quiz-container").appendChild(notification);
@@ -232,39 +194,38 @@ function displayResult() {
   nextButton.style.display = "none";
   optionsList.style.display = "none";
 
-  restartButton.addEventListener("click", () => {
-    restartQuiz();
-  });
   restartButton.style.display = "block";
 }
 
-function showNextQuestion() {
-  currentQuestion++;
+function nextSoal() {
+  soal++;
 
-  if (currentQuestion < totalQuestions) {
-    displayQuestion(currentQuestion);
+  if (soal < totalSoal) {
+    soalSoal(soal);
   } else {
     displayResult();
   }
 }
 
-shuffleArray(questions);
-displayQuestion(currentQuestion);
-
 function restartQuiz() {
-  correctAnswers = 0;
-  wrongAnswers = 0;
-  currentQuestion = 0;
-  shuffleQuestions();
-  displayQuestion(currentQuestion);
+  jawabanBenar = 0;
+  jawabanSalah = 0;
+  soal = 0;
+  ngecekSoal();
+  soalSoal(soal);
 
   const notification = document.querySelector(".quiz-container p");
   if (notification) {
     notification.remove();
   }
 
+  pesanBenar.innerHTML = "0";
+
   restartButton.style.display = "none";
   answerInput.style.display = "block";
   nextButton.style.display = "block";
+  optionsList.style.display = "block";
   quizImage.style.display = "block";
 }
+ngecekSoal();
+soalSoal(soal);

@@ -42,7 +42,7 @@
 }
 
 #optionLi {
-  background-color: #ff0000;
+  /* background-color: #ff0000; */
 }
 
 #optionLi li {
@@ -95,4 +95,14 @@
 
 #restart-quiz {
   margin: 20px auto;
+}
+
+#benar {
+  font-size: 10px;
+  padding-right: 30px;
+  color: yellow;
+  display: block;
+  font-size: 20px;
+  filter: drop-shadow(2px 2px 2px black);
+  text-align: right;
 }
