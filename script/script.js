@@ -90,7 +90,7 @@ const questions = [
 let soal = 0;
 let jawabanBenar = 0;
 let jawabanSalah = 0;
-const totalSoal = 2;
+const totalSoal = 10;
 
 const quizImage = document.querySelector(".quiz-container img");
 const quizText = document.querySelector("#quiz");
