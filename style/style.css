@@ -8,22 +8,34 @@
   font-family: "Poppins", sans-serif;
 }
 
+body {
+  background-color: #ddd;
+}
+
 .container {
   width: 100vw;
   height: 100vh;
   background-image: url(../img/BG.png);
   background-position: center;
   background-size: cover;
-  padding: 50px 0;
+  padding: 30px 0 0;
+  display: none;
+}
+.container.mulai {
+  display: block;
 }
 
 .quiz-container {
   width: 360px;
-  height: 100%;
-  margin: auto;
+
+  margin: 0 auto;
+  /* height: 80%; */
   border-radius: 30px;
-  padding: 20px 10px;
-  text-align: center;
+  padding: 0px 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  position: fixed;
+  text-align: left;
   background: rgba(255, 255, 255, 0.18);
   box-shadow: 2px 1px 22px -1px rgba(0, 0, 0, 0.5);
 }
@@ -46,7 +58,7 @@
 }
 
 #optionLi li {
-  margin-left: 50px;
+  margin-left: 20px;
   font-size: 12px;
   text-align: left;
   list-style: none;
@@ -55,6 +67,7 @@
 .quiz-container .label-input {
   margin-top: 20px;
   display: block;
+  text-align: center;
 }
 
 .quiz-container input {
@@ -105,4 +118,72 @@
   font-size: 20px;
   filter: drop-shadow(2px 2px 2px black);
   text-align: right;
+}
+
+.informasi {
+  width: 70%;
+  height: 100vh;
+  padding: 0px auto;
+  margin: auto;
+  text-align: center;
+  background-color: #ddd;
+}
+
+.informasi h1 {
+  color: #ff0000;
+}
+
+.informasi .p {
+  font-size: 13px;
+}
+
+.aturan {
+  margin: 40px 0;
+  /* background-color: rgb(159, 201, 237); */
+  text-align: left;
+}
+
+.informasi button {
+  padding: 10px 30px;
+  color: #ff0000;
+  border: 0.5px solid black;
+}
+
+.informasi button:hover {
+  color: #ffffff;
+  padding: 10px 35px;
+  background-color: rgb(193, 139, 139);
+  border: 0.5px solid black;
+}
+
+.informasi button:active {
+  transform: scale(0.97);
+  color: #ffffff;
+  padding: 10px 35px;
+  background-color: red;
+  border: 0.5px solid black;
+}
+
+@media (max-width: 500px) {
+  .quiz-container {
+  }
+
+  .informasi {
+    width: 100%;
+    margin: 0px auto;
+    padding: 10px;
+    text-align: center;
+    font-size: 13px;
+  }
+  .informasi h1 {
+    font-size: 25px;
+    padding: 10px 0 20px;
+  }
+  .informasi h3 {
+    text-align: center;
+    padding: 10px 0;
+  }
+  .informasi ul {
+    margin-left: 20px;
+  }
 }

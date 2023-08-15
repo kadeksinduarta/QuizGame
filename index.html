@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style/style.css" />
   </head>
   <body>
-    <div class="container">
+    <div class="container" id="container">
       <div class="quiz-container">
         <label id="benar"> &starf; : <span style="color: #fff" id="benarfix">0</span></label>
         <img src="" alt="" />
@@ -20,6 +20,28 @@
         <button id="restart-quiz" style="display: none">Ulang Quiz</button>
       </div>
     </div>
+    <div class="informasi" id="informasi">
+      <h1>hello selamat datang</h1>
+      <p id="p">
+        Dalam rangka merayakan Hari Kemerdekaan, saya dengan bangga mempersembahkan sebuah permainan kuis yang sederhana namun bermakna. Kuis ini dirancang untuk melatih pengetahuan Anda tentang Indonesia, sejarahnya, dan perjuangannya
+        dalam meraih kemerdekaan. Dengan permainan ini, mari bersama-sama mengenang perjalanan panjang dan berharga yang telah membawa negara kita menuju kemerdekaan yang diidamkan. Ayo, mari uji pengetahuan Anda dan kembangkan rasa cinta
+        tanah air!
+      </p>
+      <div class="aturan">
+        <h3>aturan permain ini</h3>
+        <ul>
+          <li>anda hanya boleh memasukkan huruf A, B, C, dan D</li>
+          <!-- rencana-nya akan meyiapkan soal lebih dari 100 tapi sekarang baru 30an-->
+          <li>jumlah soal hanya 10, dan ketika anda mengulang soal nya, anda akan mendapat soal yang berbeda dari sebelum nya</li>
+          <li>Setiap soal yang benar anda akan mendapat 1 poin/bintang</li>
+        </ul>
+      </div>
+      <button id="mulai">Mulai</button>
+    </div>
+    <audio id="backgroundMusic" loop>
+      <source src="audio/Indonesia Raya.mp3" type="audio/mpeg" />
+      Your browser does not support the audio element.
+    </audio>
     <script src="script/script.js"></script>
   </body>
 </html>

@@ -160,7 +160,7 @@ const questions = [
   {
     question: "Setiap 20 Mei kita memperingati hari apa?",
     answer: "c",
-    options: ["A. Hari Kemerdekaan", "B. Hari Pendidikan Nasional", "C. Hari Kebangkitan Nasional", "D. 1Hari Pahlawan"],
+    options: ["A. Hari Kemerdekaan", "B. Hari Pendidikan Nasional", "C. Hari Kebangkitan Nasional", "D. Hari Pahlawan"],
   },
   {
     question: "Setiap 10 November kita memperingati hari apa?",
@@ -189,6 +189,17 @@ const nextButton = document.querySelector("#next-quiz");
 const restartButton = document.getElementById("restart-quiz");
 const optionsList = document.getElementById("optionLi");
 let pesanBenar = document.getElementById("benarfix");
+const container = document.getElementById("container");
+const informasi = document.getElementById("informasi");
+const mulai = document.getElementById("mulai");
+const startButton = document.getElementById("startButton");
+const backgroundMusic = document.getElementById("backgroundMusic");
+
+mulai.addEventListener("click", () => {
+  container.classList.toggle("mulai");
+  informasi.style.display = "none";
+  backgroundMusic.play(); // Memutar musik saat tombol mulai diklik
+});
 
 ngecekSoal();
 soalSoal(soal);
@@ -253,8 +264,10 @@ function reviewJawaban() {
   if (userAnswer === correctAnswer) {
     jawabanBenar++;
     benar();
+    backgroundMusic.play();
   } else {
     jawabanSalah++;
+    backgroundMusic.pause();
   }
 
   answerInput.value = "";
@@ -267,11 +280,11 @@ function benar() {
 function displayResult() {
   let resultMessage = "";
   if (jawabanBenar === totalSoal) {
-    resultMessage = "Keren!";
+    resultMessage = "Keren! musik nya engak pernah mati";
   } else if (jawabanBenar > 6 && jawabanBenar <= 10) {
-    resultMessage = "Lumayan";
+    resultMessage = "Lumayan, musik anda mati sebanyak" + jawabanSalah + "kali";
   } else {
-    resultMessage = "Anda pasti kurang belajar";
+    resultMessage = "Anda pasti kurang belajar, musik anda mati sebanyak (" + jawabanSalah + ") kali";
   }
 
   quizText.textContent = `Skor Anda: ${jawabanBenar}, dari ${totalSoal} soal`;
