@@ -287,7 +287,13 @@ function displayResult() {
   restartButton.style.display = "block";
 }
 
+function removePreviousQuestion(questionIndex) {
+  questions.splice(questionIndex, 1);
+}
+
 function nextSoal() {
+  removePreviousQuestion(soal);
+
   soal++;
 
   if (soal < totalSoal) {
@@ -301,6 +307,7 @@ function restartQuiz() {
   jawabanBenar = 0;
   jawabanSalah = 0;
   soal = 0;
+
   ngecekSoal();
   soalSoal(soal);
 
