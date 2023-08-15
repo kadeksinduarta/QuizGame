@@ -70,7 +70,7 @@ const questions = [
   },
   {
     // Gambar : Kepala Banteng
-    image: "img/kepalabanteng.png",
+    image: "img/kepalaBanteng.png",
     question: "gambar diatas merupakan lambang pancasila ke?",
     answer: "c",
     options: ["A. satu", "B. dua", "C. tiga", "D. lima"],
@@ -81,6 +81,96 @@ const questions = [
     question: "gambar diatas merupakan lambang pancasila ke?",
     answer: "b",
     options: ["A. satu", "B. lima", "C. tiga", "D. empat"],
+  },
+  {
+    question: "Siapakah dua tokoh utama yang terlibat dalam pembacaan teks proklamasi pada 17 Agustus 1945?",
+    answer: "a",
+    options: ["A. Soekarno dan Mohammad Hatta", "B. Tan Malaka dan Sutan Sjahrir", "C.  Muhammad Yamin dan Agus Salim", "D. Soeharto dan Megawati Soekarnoputri"],
+  },
+  {
+    question: "Apa yang diperingati pada Hari Ulang Tahun Pancasila setiap tanggal 1 Juni?",
+    answer: "d",
+    options: ["A. Hari Lahir Bung Karno", "B. Hari Lahir Mohammad Hatta", "C.  Hari Lahir Soekarno", "D. Hari Lahir Pancasila"],
+  },
+  {
+    question: "Presiden Soekarno mengumumkan secara resmi berdirinya BKR pada tanggal..?",
+    answer: "c",
+    options: ["A. 23 Agustus 1945", "B. 19 Agustus 1945", "C.  18 Agustus 1945", "D. 22 Juni 1945"],
+  },
+  {
+    question: "Gerakan 3A yang dibentuk oleh Jepang untuk menarik simpati bangsa Indonesia diketuai oleh?",
+    answer: "a",
+    options: ["A. Ir. Soekarno", "B. Mr. Sjamsudin", "C.  Ki Hajar Dewantara", "D. Moh. Hatta"],
+  },
+  {
+    question: "Kapan hari dan tanggal diumumkannya proklamasi kemerdekaan Indonesia?",
+    answer: "a",
+    options: ["A. 17 Agustus 1945", "B. 14 Agustus 1945", "C. 21 September 1945", "D. 25 Desember 1945"],
+  },
+  {
+    question: "Siapakah yang mengumumkan proklamasi kemerdekaan Indonesia?",
+    answer: "b",
+    options: ["A. Mohammad Hatta", "B.  Ir. Soekarno", "C.  Sutan Sjahrir", "D. Agus Salim"],
+  },
+  {
+    question: "Di manakah Ir. Soekarno membacakan teks proklamasi kemerdekaan Indonesia?",
+    answer: "d",
+    options: ["A. Monumen Nasional (Monas), Jakarta", "B. Istana Bogor, Bogor", "C. Gedung Merdeka, Bandung", "D. Jalan Pegangsaan Timur No. 56, Jakarta Pusat"],
+  },
+  {
+    question: "Apa kepanjangan PPKI?",
+    answer: "b",
+    options: ["A. Panitia Penyelidik Kemerdekaan Indonesia", "B.  Panitia Persiapan Kemerdekaan Indonesia", "C. Pusat Penelitian Kemerdekaan Indonesia", "D. Panitia Perjuangan Kemerdekaan Indonesia"],
+  },
+  {
+    question: "Siapakah yang mengetik teks proklamasi Kemerdekaan Indonesia?",
+    answer: "a",
+    options: ["A. Sayuti Melik", "B. Haji Agus Salim", "C. Ki Hajar Dewantara", "D.  Mohamad Yamin"],
+  },
+  {
+    question: "Bendera merah putih yang dikibarkan pada 17 Agustus 1945 disebut apa?",
+    answer: "d",
+    options: ["A. Bendera Merdeka", "B. Bendera Sang Saka Merah Putih", "C. Bendera Pusaka", "D. Bendera Pusaka Sang Saka Merah Putih"],
+  },
+  {
+    question: "Siapakah yang menciptakan lagu 'Indonesia Raya'?",
+    answer: "c",
+    options: ["A. Ismail Marzuki", "B. Soe Hok Gie", "C. Wage Rudolf Soepratman", "D. Ahmad Dahlan"],
+  },
+  {
+    question: "Kapan Sumpah Pemuda dicetuskan?",
+    answer: "b",
+    options: ["A. 17 Agustus 1945", "B. 28 Oktober 1928", "C. 1 Juni 1945", "D. 14 Juli 1930"],
+  },
+  {
+    question: "Apa semboyan negara Indonesia?",
+    answer: "c",
+    options: ["A. Pancasila", "B. Tunggal Ika", "C. Bhinneka Tunggal Ika", "D. Garuda Pancasila"],
+  },
+  {
+    question: "Apa arti Bhinneka Tunggal Ika?",
+    answer: "c",
+    options: ["A. Berdiri Bersama", "B. Satu Tujuan, Satu Negara", "C. Berbeda-beda tetapi tetap satu", "D. Kekuatan Rakyat"],
+  },
+  {
+    question: "Hari Pendidikan Nasional diperingati setiap tanggal berapa?",
+    answer: "b",
+    options: ["A. 1 Juni", "B. 2 Mei", "C. 17 Agustus", "D. 10 November"],
+  },
+  {
+    question: "Setiap 20 Mei kita memperingati hari apa?",
+    answer: "c",
+    options: ["A. Hari Kemerdekaan", "B. Hari Pendidikan Nasional", "C. Hari Kebangkitan Nasional", "D. 1Hari Pahlawan"],
+  },
+  {
+    question: "Setiap 10 November kita memperingati hari apa?",
+    answer: "d",
+    options: ["A. Hari Kemerdekaan", "B. Hari Pendidikan Nasional", "C. Hari Kebangkitan Nasional", "D. Hari Pahlawan"],
+  },
+  {
+    question: "Apa Tema HUT RI ke-78 pada 2023?",
+    answer: "d",
+    options: ["A. indonesia Maju Bersama", "B. Bersatu Untuk Kemajuan", "C. Terus Melaju untuk Indonesia Maju", "D. Kreativitas Menuju Kemajuan"],
   },
 ];
 
